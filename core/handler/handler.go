@@ -6,8 +6,8 @@ import (
 	//	"io/ioutil"
 	"net/http"
 
+	"github.com/devectron/moonlight/core/rest"
 	"github.com/gin-gonic/gin"
-	"github.com/hihebark/moonlight/core/rest"
 )
 
 func GetAllRest(c *gin.Context) {

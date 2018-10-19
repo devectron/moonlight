@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"path"
 	"path/filepath"
 
+	//"github.com/devectron/moonlight/core/handler"
+	"github.com/devectron/moonlight/core/rest"
 	"github.com/gin-gonic/gin"
-	"github.com/hihebark/moonlight/core/handler"
-	//	"github.com/hihebark/moonlight/core/rest"
 )
 
 const (
@@ -27,12 +28,14 @@ func main() {
 		}
 	})
 
-	//	rests := []rest.Rest{}
-	//	rests = append(rests, *rest.NewRest("1"))
-	//	rests = append(rests, *rest.NewRest("2"))
-	//	rests = append(rests, *rest.NewRest("3"))
+	rests := []rest.Rest{}
+	rests = append(rests, *rest.NewRest("1"))
+	rests = append(rests, *rest.NewRest("2"))
+	rests = append(rests, *rest.NewRest("3"))
 	//r.POST("/rest/:id/vote", handler.Vote)
-	r.GET("/index", handler.GetAllRest)
+	r.GET("/index", func(c *gin.Context) {
+		c.JSON(http.StatusOK, rest.GetRests())
+	})
 	//r.DELETE("/rest/:id", handlers.DeleteTodoHandler)
 
 	err := r.Run(":3000")
