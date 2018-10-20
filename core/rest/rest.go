@@ -2,10 +2,6 @@ package rest
 
 import "errors"
 
-var (
-	Restslist []Rest
-)
-
 type Rests struct {
 	rest []Rest
 }
@@ -13,22 +9,14 @@ type Rests struct {
 type Rest struct {
 	ID      int     `json:"id"`
 	Name    string  `json:"name"`
-	Quality quality `json:"quality"`
+	Image   string  `json:"image"`
+	Quality Quality `json:"quality"`
 }
 
-type quality struct {
-	nourriture int `json:"nourriture"`
-	salle      int `json:"salle"`
-	service    int `json:"service"`
-}
-
-func init() {
-	Restslist = append(Restslist, Rest{Name: "restaurant 1", ID: len(Restslist)})
-	Restslist = append(Restslist, Rest{Name: "restaurant 2", ID: len(Restslist)})
-	Restslist = append(Restslist, Rest{Name: "restaurant 3", ID: len(Restslist)})
-}
-func GetRests() []Rest {
-	return Restslist
+type Quality struct {
+	Nourriture int `json:"nourriture"`
+	Salle      int `json:"salle"`
+	Service    int `json:"service"`
 }
 
 func NewRest(name string) *Rest {

@@ -1,5 +1,11 @@
-<p align="center"><img src="logo.png"></p>
+<p align="center" style="width:200px;"><img src="logo.png"></p>
 
-# Moonlight
+Moonlight
+=========
 
-Still working on it!...
+## Instalation & Usage
+
+⋅⋅* install [go](https://golang.org/dl/) on you're machine
+⋅⋅* and then type this on you're terminal `go get -u github.com/devectron/moonlight`
+⋅⋅* `cd $GOPATH/src/github.com/devectron/moonlight`
+⋅⋅* `go build` and then `./moonlight` OR `go run main.go`
